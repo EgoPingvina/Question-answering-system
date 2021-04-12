@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Net;
 using VDS.RDF;
@@ -34,7 +34,19 @@ namespace SparqlTry
                             dbpedia:Junagadh dbpedia-owl:abstract ?abstract.
                         }
                     ";
-
+                var query2 =
+                    @"
+                        PREFIX dbo: <http://dbpedia.org/ontology/>
+                        SELECT ?manufacturer ?name ?car
+                        WHERE {
+                            ?car <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Luxury_vehicles> .
+                            ?car foaf:name ?name .
+                            ?car dbo:manufacturer ?man .
+                            ?man foaf:name ?manufacturer
+                            filter langMatches(lang(?manufacturer),""en"")
+                        }
+                    ";
+                
                 var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"), "http://dbpedia.org");
 
                 var results = endpoint.QueryWithResultSet(query);
