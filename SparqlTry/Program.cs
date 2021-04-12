@@ -32,6 +32,7 @@ namespace SparqlTry
                         SELECT ?abstract
                         WHERE {
                             dbpedia:Junagadh dbpedia-owl:abstract ?abstract.
+                            filter langMatches(lang(?abstract),""ru"")
                         }
                     ";
                 var query2 =
