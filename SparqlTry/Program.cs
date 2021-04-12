@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net;
 using VDS.RDF;
@@ -36,7 +36,12 @@ namespace SparqlTry
                     ";
 
                 var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"), "http://dbpedia.org");
+
                 var results = endpoint.QueryWithResultSet(query);
+
+                endpoint.RdfAcceptHeader = "application/turtle";
+                var graph = endpoint.QueryWithResultGraph(query);
+                var ndoes = graph.AllNodes;
 
                 using (var response = endpoint.QueryRaw(query))
                 {
