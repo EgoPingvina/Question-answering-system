@@ -47,6 +47,16 @@ namespace SparqlTry
                             filter langMatches(lang(?manufacturer),""en"")
                         }
                     ";
+
+                var query3 =
+                    @"
+                        PREFIX dbpedia: <http://dbpedia.org/resource/>
+                        SELECT DISTINCT ?date
+                        WHERE
+                        { 
+                            dbpedia:Alexander_Pushkin dbo:birthDate ?date
+                        }
+                    ";
                 
                 var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"), "http://dbpedia.org");
 
