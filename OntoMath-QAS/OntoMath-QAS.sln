@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OntoMath-QAS", "OntoMath-QAS.csproj", "{702839A6-7F4B-4843-BF95-1EDEBCE1EB14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{702839A6-7F4B-4843-BF95-1EDEBCE1EB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702839A6-7F4B-4843-BF95-1EDEBCE1EB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702839A6-7F4B-4843-BF95-1EDEBCE1EB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702839A6-7F4B-4843-BF95-1EDEBCE1EB14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FABA0E45-8EE8-4E23-B321-D6C72810DD66}
+	EndGlobalSection
+EndGlobal
