@@ -1,5 +1,7 @@
 ﻿using DryIoc;
 
+using OntoMath_QAS.Ontology;
+
 namespace OntoMath_QAS
 {
     public partial class Program
@@ -13,7 +15,7 @@ namespace OntoMath_QAS
         /// <param name="container">Используемый IoC-контейнер</param>
         public static void Register(IContainer container)
         {
-
+            container.Register<RequestGenerator>(Reuse.Transient);
         }
     }
 }
