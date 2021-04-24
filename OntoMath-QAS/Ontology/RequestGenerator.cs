@@ -35,15 +35,30 @@ namespace OntoMath_QAS.Ontology
             Options.HttpDebugging = false;
         }
 
+        /// <summary>
+        /// Получить данные в виде набора(коллекции) результатов(строк таблицы ответа) запроса.
+        /// </summary>
+        /// <param name="query">Запрос к онтологии на языке SPARQL.</param>
+        /// <returns>Результат запроса в виде набора результатов.</returns>
         public SparqlResultSet GetSet(string query)
             => this.endpoint.QueryWithResultSet(query);
 
+        /// <summary>
+        /// Получить данные в виде графа.
+        /// </summary>
+        /// <param name="query">Запрос к онтологии на языке SPARQL.</param>
+        /// <returns>Результат запроса в виде графа.</returns>
         public IGraph GetGraph(string query)
         {
             this.endpoint.RdfAcceptHeader = "application/turtle";
             return endpoint.QueryWithResultGraph(query);
         }
 
+        /// <summary>
+        /// Получить данные в "сыром" виде, без предобработок и приведения к форматам данных.
+        /// </summary>
+        /// <param name="query">Запрос к онтологии на языке SPARQL.</param>
+        /// <returns>Результат запроса в "сыром" виде.</returns>
         public string GetRaw(string query)
         {
             var result = new StringBuilder();
