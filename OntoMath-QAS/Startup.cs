@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -8,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 
 using OntoMath_QAS.Middleware;
+using OntoMath_QAS.Models.Settings;
 
 using static OntoMath_QAS.AppConstants;
 
@@ -15,10 +17,22 @@ namespace OntoMath_QAS
 {
     public sealed partial class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            this.Configuration = configuration;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var endpoint = this.Configuration.GetSection(SparqlEndpointSettings.Key);
+
+            services.Configure<SparqlEndpointSettings>(endpoint);
+
+
             services
                 .AddMvc(option =>
                 {
@@ -33,16 +47,18 @@ namespace OntoMath_QAS
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                 });
 
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc(API.Version, new OpenApiInfo
-                {
-                    Version = API.Version,
-                    Title   = API.Swagger.Title
-                });
-            });
 
-            services.AddSwaggerGenNewtonsoftSupport();
+            services
+                .AddSwaggerGen(options =>
+                {
+                    options.SwaggerDoc(API.Version, new OpenApiInfo
+                    {
+                        Version = API.Version,
+                        Title   = API.Swagger.Title
+                    });
+                })
+                .AddSwaggerGenNewtonsoftSupport();
+
 
             services.AddCors(options => options.AddPolicy(this.AllowAnyPolicyName, this.AllowAny));
         }

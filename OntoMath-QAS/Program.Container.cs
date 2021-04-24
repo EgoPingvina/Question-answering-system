@@ -7,7 +7,7 @@ namespace OntoMath_QAS
     public partial class Program
     {
         private static IContainer Container { get; }
-                 = new Container().With(rules => rules.With(propertiesAndFields: PropertiesAndFields.Auto));
+            = new Container().With(rules => rules.With(propertiesAndFields: PropertiesAndFields.Auto));
 
         /// <summary>
         /// Регистрация типов в IoC-контейнере.

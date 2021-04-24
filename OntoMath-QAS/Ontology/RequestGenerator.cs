@@ -2,17 +2,36 @@
 using System.IO;
 using System.Text;
 
+using Microsoft.Extensions.Options;
+
 using VDS.RDF;
 using VDS.RDF.Query;
 
+using OntoMath_QAS.Models.Settings;
+
+using Options = VDS.RDF.Options;
+
 namespace OntoMath_QAS.Ontology
 {
+    /// <summary>
+    /// Узел, генерирующий запрос к онтологии и возвращающий ответ на него.
+    /// </summary>
     public sealed class RequestGenerator
     {
-        private SparqlRemoteEndpoint endpoint = new SparqlRemoteEndpoint(new Uri("http://lobachevskii-dml.ru:8890/sparql"));
+        /// <summary>
+        /// Точка доступа SPARQL.
+        /// </summary>
+        private readonly SparqlRemoteEndpoint endpoint;
 
-        public RequestGenerator()
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public RequestGenerator(IOptions<SparqlEndpointSettings> settings)
         {
+            // устанавливаем соединение с точкой подключения SPARQL некоторой онтологии.
+            this.endpoint = new SparqlRemoteEndpoint(new Uri(settings.Value.Uri));
+
+            // отключаем передачу отладочной информации для оптимизации.
             Options.HttpDebugging = false;
         }
 
