@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 using VDS.RDF;
 using VDS.RDF.Query;
 
-namespace OntoMath_QAS.SPARQL
+namespace OntoMath_QAS.Ontology
 {
     public sealed class RequestGenerator
     {
@@ -26,7 +23,6 @@ namespace OntoMath_QAS.SPARQL
         {
             this.endpoint.RdfAcceptHeader = "application/turtle";
             return endpoint.QueryWithResultGraph(query);
-            //var ndoes = graph.AllNodes;
         }
 
         public string GetRaw(string query)
