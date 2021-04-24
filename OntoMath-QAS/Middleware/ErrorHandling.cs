@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Serilog;
 
-using OntoMath_QAS.Models;
+using OntoMath_QAS.Models.Exceptions;
 
 using static OntoMath_QAS.AppConstants;
 
