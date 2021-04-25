@@ -1,12 +1,12 @@
-﻿дочерние элементы класса;что входит в состав класса;зависимые определния
+﻿дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определния (.*)
 SELECT ?name ?comment
-WHERE {
+WHERE {{
     ?target rdfs:label ?name.
     ?target rdfs:comment ?comment.
     ?target rdfs:subClassOf ?parent.
     ?parent rdfs:label ?label.
     filter(?label = "{0}"@ru)
     filter langMatches(lang(?name),"ru")
-}
+}}
 LIMIT 10
 +
