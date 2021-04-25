@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 using Newtonsoft.Json;
 
@@ -29,12 +30,23 @@ namespace OntoMath_QAS.Ontology
         /// </summary>
         private List<MapItem> storage;
 
-        public string this[string answer]
+        public (bool, string) this[string answer]
         {
             get
             {
-                
-                return "";
+                var item = this.storage.FirstOrDefault(x => x.Variants.Any(v => Regex.IsMatch(answer, v)));
+
+                if (item == default)
+                {
+                    return (false, string.Empty);
+                }
+
+                var parameter =
+                    Regex.Match(answer, item.Variants.First(x => Regex.IsMatch(answer, x)))
+                         .Groups[1]
+                         .Value;
+
+                return (true, item.ConcreteQuery(parameter));
             }
         }
 
@@ -90,7 +102,7 @@ namespace OntoMath_QAS.Ontology
                     line = reader.ReadLine();
                     while (line != "+")
                     {
-                        query.Append(line);
+                        query.Append($"{line} ");
 
                         line = reader.ReadLine();
                     }
