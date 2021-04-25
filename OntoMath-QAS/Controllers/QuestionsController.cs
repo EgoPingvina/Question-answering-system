@@ -12,8 +12,8 @@ namespace OntoMath_QAS.Controllers
     {
         public QuestionsService Service { private get; set; }
 
-        // POST api/<QuestionsController>
-        [HttpPost,
+        // GET api/<QuestionsController>
+        [HttpGet,
             ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public IActionResult UpdateMap()
         {

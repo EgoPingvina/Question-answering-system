@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,17 +17,26 @@ namespace OntoMath_QAS.Ontology
         /// <summary>
         /// Путь до файла с последним состоянием карты преобразований.
         /// </summary>
-        private const string path = "MapItems.json";
+        private const string path = "Data/MapItems.json";
 
         /// <summary>
         /// Путь до файла с человеко-читаемым форматированием запросов.
         /// </summary>
-        private const string pathToSource = "ReadableMap.txt";
+        private const string pathToSource = "Data/ReadableMap.txt";
 
         /// <summary>
         /// Хранилище последнего обновлённого состояния карты.
         /// </summary>
         private List<MapItem> storage;
+
+        public string this[string answer]
+        {
+            get
+            {
+                
+                return "";
+            }
+        }
 
         /// <summary>
         /// Конструктор по умолчанию.
@@ -82,23 +91,22 @@ namespace OntoMath_QAS.Ontology
                     while (line != "+")
                     {
                         query.Append(line);
+
+                        line = reader.ReadLine();
                     }
 
-                    updatedState.Append(
+                    updatedState.Add(
                         new MapItem
                         {
-                            Variants = variants,
+                            Variants      = variants,
                             QueryTemplate = query.ToString()
                         });
                 }
             }
 
-            using (StreamWriter sw = new StreamWriter(path))
+            using (var file = File.CreateText(path))
             {
-                using (var writer = new JsonTextWriter(sw))
-                {
-                    new JsonSerializer().Serialize(writer, updatedState);
-                }
+                new JsonSerializer().Serialize(file, updatedState);
             }
         }
     }
