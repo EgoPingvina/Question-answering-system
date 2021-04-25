@@ -1,4 +1,4 @@
-﻿using DryIoc;
+using DryIoc;
 
 using OntoMath_QAS.Ontology;
 
@@ -6,6 +6,9 @@ namespace OntoMath_QAS
 {
     public partial class Program
     {
+        /// <summary>
+        /// Используемый настроенный IOC-контейнер.
+        /// </summary>
         private static IContainer Container { get; }
             = new Container().With(rules => rules.With(propertiesAndFields: PropertiesAndFields.Auto));
 
@@ -16,6 +19,8 @@ namespace OntoMath_QAS
         public static void Register(IContainer container)
         {
             container.Register<RequestGenerator>(Reuse.Transient);
+
+            container.Register<QuestionMap>(Reuse.Singleton);
         }
     }
 }
