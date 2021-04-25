@@ -34,17 +34,16 @@ namespace OntoMath_QAS.Services
 
         public string GetAnswer(string question)
         {
-            var (isCorrect, query) = this.Map.Value[question];
+            var (isFound, query, answerTemplate) = this.Map.Value[question];
 
-            if (!isCorrect)
+            if (!isFound)
             {
                 return "Не удалось понять Ваш вопрос, попробуйте переформулировать, пожалуйста.";
             }
 
             var result = this.Generator.Value.GetSet(query);
 
-            // тут должен был быть преобразователь в человеко-читаемый ответ
-            return "тут должен был быть человеко-читаемый ответ";
+            return string.Format(answerTemplate, result);
         }
     }
 }

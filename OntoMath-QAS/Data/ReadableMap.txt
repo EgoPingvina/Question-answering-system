@@ -1,4 +1,5 @@
-﻿дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определния (.*)
+﻿дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определения (.*)
+дочерние элементы: {0};в состав класса входит: {0};обнаруженные зависимые определения: {0}
 SELECT ?name ?comment
 WHERE {{
     ?target rdfs:label ?name.
@@ -8,5 +9,17 @@ WHERE {{
     filter(?label = "{0}"@ru)
     filter langMatches(lang(?name),"ru")
 }}
-LIMIT 10
+LIMIT 100
++
+что нужно знать перед изучением (.*);в какой класс входит (.*);в какие классы входит (.*)
+сперва вам стоит ознакомиться с: {0};входит в: {0};входит в: {0}
+SELECT ?label ?comment
+WHERE {{
+    ?target rdfs:label ?name.
+    ?target rdfs:subClassOf ?parent.
+    ?parent rdfs:label ?label.
+    ?parent rdfs:comment ?comment.
+    filter(?name = "{0}"@ru)
+    filter langMatches(lang(?name),"ru")
+}}
 +

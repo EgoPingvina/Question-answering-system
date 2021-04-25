@@ -8,9 +8,9 @@ namespace OntoMath_QAS.Models.Mapper
     public sealed class MapItem
     {
         /// <summary>
-        /// Варианты вопроса на естественном языке.
+        /// Варианты вопроса на естественном языке и соответствующие им шаблоны ответа.
         /// </summary>
-        public List<string> Variants { get; set; }
+        public Dictionary<string, string> VariantAnswerPairs { get; set; }
 
         /// <summary>
         /// Соответствующий шаблон запроса на языке SPARQL.

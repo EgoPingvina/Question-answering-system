@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,27 +27,33 @@ namespace OntoMath_QAS.Ontology
         private const string pathToSource = "Data/ReadableMap.txt";
 
         /// <summary>
+        /// Параметры поиска соответсвий.
+        /// </summary>
+        private readonly RegexOptions options = RegexOptions.IgnoreCase;
+
+        /// <summary>
         /// Хранилище последнего обновлённого состояния карты.
         /// </summary>
         private List<MapItem> storage;
 
-        public (bool, string) this[string answer]
+        public (bool isFound, string query, string answerTemplate) this[string answer]
         {
             get
             {
-                var item = this.storage.FirstOrDefault(x => x.Variants.Any(v => Regex.IsMatch(answer, v)));
+                var item = this.storage.FirstOrDefault(x => x.VariantAnswerPairs.Any(v => Regex.IsMatch(answer, v.Key, options)));
 
                 if (item == default)
                 {
-                    return (false, string.Empty);
+                    return (false, string.Empty, string.Empty);
                 }
 
+                var pair = item.VariantAnswerPairs.First(x => Regex.IsMatch(answer, x.Key, options));
                 var parameter =
-                    Regex.Match(answer, item.Variants.First(x => Regex.IsMatch(answer, x)))
+                    Regex.Match(answer, pair.Key, options)
                          .Groups[1]
                          .Value;
 
-                return (true, item.ConcreteQuery(parameter));
+                return (true, item.ConcreteQuery(parameter), pair.Value);
             }
         }
 
@@ -97,10 +104,19 @@ namespace OntoMath_QAS.Ontology
                     var line = reader.ReadLine();
                     var variants = line.Split(';').ToList();
 
+                    // соотвествующие варианты ответы
+                    line = reader.ReadLine();
+                    var answers = line.Split(';').ToList();
+
+                    if (variants.Count != answers.Count)
+                    {
+                        throw new InvalidOperationException("Количества вариантов вопроса и шаблонов ответа не совпадают.");
+                    }
+
                     // обрабатываем шаблон запроса
                     var query = new StringBuilder();
                     line = reader.ReadLine();
-                    while (line != "+")
+                    while (line != "+" && !reader.EndOfStream)
                     {
                         query.Append($"{line} ");
 
@@ -110,8 +126,8 @@ namespace OntoMath_QAS.Ontology
                     updatedState.Add(
                         new MapItem
                         {
-                            Variants      = variants,
-                            QueryTemplate = query.ToString()
+                            VariantAnswerPairs = variants.Select((x, i) => (x, answers[i])).ToDictionary(x => x.x, x => x.Item2),
+                            QueryTemplate      = query.ToString()
                         });
                 }
             }
