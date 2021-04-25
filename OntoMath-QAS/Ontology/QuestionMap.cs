@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace OntoMath_QAS.Ontology
     /// <summary>
     /// Карта преобразований вопросов пользователей в запросы к RDF.
     /// </summary>
-    internal sealed class QuestionMap
+    public sealed class QuestionMap
     {
         /// <summary>
         /// Путь до файла с последним состоянием карты преобразований.

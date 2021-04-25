@@ -1,6 +1,7 @@
-using DryIoc;
+﻿using DryIoc;
 
 using OntoMath_QAS.Ontology;
+using OntoMath_QAS.Services;
 
 namespace OntoMath_QAS
 {
@@ -19,6 +20,8 @@ namespace OntoMath_QAS
         public static void Register(IContainer container)
         {
             container.Register<RequestGenerator>(Reuse.Transient);
+
+            container.Register<QuestionsService>(Reuse.Transient);
 
             container.Register<QuestionMap>(Reuse.Singleton);
         }
