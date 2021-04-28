@@ -1,4 +1,4 @@
-дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определения (.*)
+﻿дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определения (.*)
 дочерние элементы: {0};в состав класса входит: {0};обнаруженные зависимые определения: {0}
 SELECT ?name ?comment
 WHERE {{
@@ -22,4 +22,17 @@ WHERE {{
     FILTER(?name = "{0}"@ru)
     FILTER langMatches(lang(?name),"ru")
 }}
+LIMIT 100
++
+где фигурирует (.*);что фигурирует в литературе под авторством (.*)
+были обнаружены следующие косвенно связанные сущности: {0};обнаружено следующее: {0}
+SELECT DISTINCT ?label ?comment
+WHERE
+{{
+  ?entity rdfs:comment ?comment.
+  ?entity rdfs:label ?label.
+  FILTER CONTAINS(LCASE(STR(?comment)), LCASE("колмогоров"))
+  FILTER langMatches(lang(?label),"ru")
+}}
+LIMIT 100
 +
