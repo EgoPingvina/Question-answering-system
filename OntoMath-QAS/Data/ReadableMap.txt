@@ -1,4 +1,4 @@
-﻿дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определения (.*)
+дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определения (.*)
 дочерние элементы: {0};в состав класса входит: {0};обнаруженные зависимые определения: {0}
 SELECT ?name ?comment
 WHERE {{
@@ -6,8 +6,8 @@ WHERE {{
     ?target rdfs:comment ?comment.
     ?target rdfs:subClassOf ?parent.
     ?parent rdfs:label ?label.
-    filter(?label = "{0}"@ru)
-    filter langMatches(lang(?name),"ru")
+    FILTER(?label = "{0}"@ru)
+    FILTER langMatches(lang(?name),"ru")
 }}
 LIMIT 100
 +
@@ -19,7 +19,7 @@ WHERE {{
     ?target rdfs:subClassOf ?parent.
     ?parent rdfs:label ?label.
     ?parent rdfs:comment ?comment.
-    filter(?name = "{0}"@ru)
-    filter langMatches(lang(?name),"ru")
+    FILTER(?name = "{0}"@ru)
+    FILTER langMatches(lang(?name),"ru")
 }}
 +
