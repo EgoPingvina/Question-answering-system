@@ -28,9 +28,9 @@ namespace OntoMath_QAS
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var endpoint = this.Configuration.GetSection(SparqlEndpointSettings.Key);
+            var endpoint = this.Configuration.GetSection(SparqlSettings.Key);
 
-            services.Configure<SparqlEndpointSettings>(endpoint);
+            services.Configure<SparqlSettings>(endpoint);
 
 
             services

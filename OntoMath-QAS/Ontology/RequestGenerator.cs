@@ -26,7 +26,7 @@ namespace OntoMath_QAS.Ontology
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
-        public RequestGenerator(IOptions<SparqlEndpointSettings> settings)
+        public RequestGenerator(IOptions<SparqlSettings> settings)
         {
             // устанавливаем соединение с точкой подключения SPARQL некоторой онтологии.
             this.endpoint = new SparqlRemoteEndpoint(new Uri(settings.Value.Uri));

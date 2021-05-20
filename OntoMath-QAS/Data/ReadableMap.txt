@@ -9,7 +9,6 @@ WHERE {{
     FILTER(?label = "{0}"@ru)
     FILTER langMatches(lang(?name),"ru")
 }}
-LIMIT 100
 +
 что нужно знать перед изучением (.*);в какой класс входит (.*);в какие классы входит (.*)
 сперва вам стоит ознакомиться с: {0};входит в: {0};входит в: {0}
@@ -22,7 +21,6 @@ WHERE {{
     FILTER(?name = "{0}"@ru)
     FILTER langMatches(lang(?name),"ru")
 }}
-LIMIT 100
 +
 где фигурирует (.*);что фигурирует в литературе под авторством (.*)
 были обнаружены следующие косвенно связанные сущности: {0};обнаружено следующее: {0}
@@ -34,5 +32,4 @@ WHERE
   FILTER CONTAINS(LCASE(STR(?comment)), LCASE("колмогоров"))
   FILTER langMatches(lang(?label),"ru")
 }}
-LIMIT 100
 +
