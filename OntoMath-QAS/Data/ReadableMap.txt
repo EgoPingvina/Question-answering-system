@@ -1,6 +1,6 @@
-﻿дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определения (.*)
+дочерние элементы класса (.*);что входит в состав класса (.*);зависимые определения (.*)
 дочерние элементы: {0};в состав класса входит: {0};обнаруженные зависимые определения: {0}
-SELECT ?name ?comment
+SELECT DISTINCT ?name ?comment
 WHERE {{
     ?target rdfs:label ?name.
     ?target rdfs:comment ?comment.
@@ -12,7 +12,7 @@ WHERE {{
 +
 что нужно знать перед изучением (.*);в какой класс входит (.*);в какие классы входит (.*)
 сперва вам стоит ознакомиться с: {0};входит в: {0};входит в: {0}
-SELECT ?label ?comment
+SELECT DISTINCT ?label ?comment
 WHERE {{
     ?target rdfs:label ?name.
     ?target rdfs:subClassOf ?parent.
