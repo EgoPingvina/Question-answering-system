@@ -21,7 +21,7 @@ WHERE {{
     ?parent rdfs:label ?label.
     ?parent rdfs:comment ?comment.
     FILTER(?name = "{0}"@ru)
-    FILTER langMatches(lang(?name),"ru")
+    FILTER langMatches(lang(?label),"ru")
 }}
 +
 true
