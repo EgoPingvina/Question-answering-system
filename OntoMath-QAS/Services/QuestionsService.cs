@@ -57,7 +57,7 @@ namespace OntoMath_QAS.Services
 
             var result = this.Generator.Value.GetSet(query);
 
-            return this.FillAnswer(answerTemplate, result));
+            return this.FillAnswer(answerTemplate, result);
         }
     }
 }
