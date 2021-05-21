@@ -48,12 +48,17 @@ namespace OntoMath_QAS.Ontology
                 }
 
                 var pair = item.VariantAnswerPairs.First(x => Regex.IsMatch(answer, x.Key, options));
-                var parameter =
-                    Regex.Match(answer, pair.Key, options)
-                         .Groups[1]
-                         .Value;
 
-                return (true, item.ConcreteQuery(parameter), pair.Value);
+                return (
+                    true,
+                    item.HasParams
+                        ? item.ConcreteQuery(
+                            Regex.Match(answer, pair.Key, options)
+                                 .Groups[1]
+                                 .Value)
+                        : item.QueryTemplate,
+                    pair.Value
+                );
             }
         }
 
@@ -100,6 +105,9 @@ namespace OntoMath_QAS.Ontology
             {
                 while (!reader.EndOfStream)
                 {
+                    // флаг наличия в вопросе параметров
+                    var hasParams = bool.Parse(reader.ReadLine());
+
                     // обрабатываем варианты вопроса пользователя
                     var line = reader.ReadLine();
                     var variants = line.Split(';').ToList();
@@ -126,6 +134,7 @@ namespace OntoMath_QAS.Ontology
                     updatedState.Add(
                         new MapItem
                         {
+                            HasParams          = hasParams,
                             VariantAnswerPairs = variants.Select((x, i) => (x, answers[i])).ToDictionary(x => x.x, x => x.Item2),
                             QueryTemplate      = query.ToString()
                         });
