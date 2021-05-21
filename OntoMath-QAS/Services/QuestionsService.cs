@@ -23,10 +23,12 @@ namespace OntoMath_QAS.Services
         private string FillAnswer(string answerTemplate, SparqlResultSet resultSet)
             => string.Format(
                 answerTemplate,
-                string.Join(
-                    "\n",
-                    resultSet.Select(x =>
-                        $"{((ILiteralNode)x[0]).Value} (подробнее: {((ILiteralNode)x[1]).Value})")));
+                resultSet.Variables.Count() == 1
+                    ? ((ILiteralNode)resultSet[0][0]).Value
+                    : string.Join(
+                        "\n",
+                        resultSet.Select(x =>
+                            $"{((ILiteralNode)x[0]).Value} (подробнее: {((ILiteralNode)x[1]).Value})")));
 
         /// <summary>
         /// Обновление карты.

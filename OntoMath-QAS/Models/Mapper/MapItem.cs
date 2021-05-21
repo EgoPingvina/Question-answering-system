@@ -8,6 +8,11 @@ namespace OntoMath_QAS.Models.Mapper
     public sealed class MapItem
     {
         /// <summary>
+        /// Содержит ли вопрос параметры.
+        /// </summary>
+        public bool HasParams { get; set; }
+
+        /// <summary>
         /// Варианты вопроса на естественном языке и соответствующие им шаблоны ответа.
         /// </summary>
         public Dictionary<string, string> VariantAnswerPairs { get; set; }
