@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-using OntoMath_QAS.Models.Mapper;
+using VDS.RDF;
+using VDS.RDF.Query;
+
 using OntoMath_QAS.Ontology;
 
 namespace OntoMath_QAS.Services
@@ -13,6 +13,20 @@ namespace OntoMath_QAS.Services
         public Lazy<RequestGenerator> Generator { private get; set; }
 
         public Lazy<QuestionMap> Map { private get; set; }
+
+        /// <summary>
+        /// Заполняет шаблон ответа результатами SPARQL запроса.
+        /// </summary>
+        /// <param name="answerTemplate">Шаблон ответа.</param>
+        /// <param name="resultSet">Ответ онтологии.</param>
+        /// <returns>Возвращает строку, содержащую данные из онтологии в формате человеко-читаемого ответа.</returns>
+        private string FillAnswer(string answerTemplate, SparqlResultSet resultSet)
+            => string.Format(
+                answerTemplate,
+                string.Join(
+                    "\n",
+                    resultSet.Select(x =>
+                        $"{((ILiteralNode)x[0]).Value} (подробнее: {((ILiteralNode)x[1]).Value})")));
 
         /// <summary>
         /// Обновление карты.
@@ -43,7 +57,7 @@ namespace OntoMath_QAS.Services
 
             var result = this.Generator.Value.GetSet(query);
 
-            return string.Format(answerTemplate, result);
+            return this.FillAnswer(answerTemplate, result));
         }
     }
 }
