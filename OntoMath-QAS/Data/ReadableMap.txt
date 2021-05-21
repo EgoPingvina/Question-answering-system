@@ -29,7 +29,7 @@ WHERE
 {{
   ?entity rdfs:comment ?comment.
   ?entity rdfs:label ?label.
-  FILTER CONTAINS(LCASE(STR(?comment)), LCASE("колмогоров"))
+  FILTER CONTAINS(LCASE(STR(?comment)), LCASE("{0}"))
   FILTER langMatches(lang(?label),"ru")
 }}
 +
