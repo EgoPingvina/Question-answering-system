@@ -57,3 +57,14 @@ WHERE
     FILTER(?concrete = "{0}"@ru)
 }}
 +
+true
+термины содержащие (.*)
+обнаруженные совпадения: {0}
+SELECT DISTINCT ?label ?comment
+WHERE
+{{
+    ?target rdfs:label ?label.
+    ?target rdfs:comment ?comment.
+    FILTER CONTAINS(LCASE(STR(?label)), LCASE("{0}"))
+}}
++
