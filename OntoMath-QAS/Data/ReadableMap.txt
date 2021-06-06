@@ -45,3 +45,15 @@ WHERE
     ?s ?p ?o
 }
 +
+true
+синонимы (.*)
+существуют следующие варианты названий: {0}
+SELECT DISTINCT ?synonym ?comment
+WHERE
+{{
+    ?target rdfs:label ?synonym.
+    ?target rdfs:label ?concrete.
+    ?target rdfs:comment ?comment.
+    FILTER(?concrete = "{0}"@ru)
+}}
++
