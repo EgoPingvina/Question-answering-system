@@ -7,7 +7,7 @@ WHERE {{
     ?target rdfs:comment ?comment.
     ?target rdfs:subClassOf ?parent.
     ?parent rdfs:label ?label.
-    FILTER(?label = "{0}"@ru)
+    FILTER(LCASE(STR(?label)) = LCASE("{0}"))
     FILTER langMatches(lang(?name),"ru")
 }}
 +
@@ -20,7 +20,7 @@ WHERE {{
     ?target rdfs:subClassOf ?parent.
     ?parent rdfs:label ?label.
     ?parent rdfs:comment ?comment.
-    FILTER(?name = "{0}"@ru)
+    FILTER(LCASE(STR(?name)) = LCASE("{0}"))
     FILTER langMatches(lang(?label),"ru")
 }}
 +
@@ -54,7 +54,7 @@ WHERE
     ?target rdfs:label ?synonym.
     ?target rdfs:label ?concrete.
     ?target rdfs:comment ?comment.
-    FILTER(?concrete = "{0}"@ru)
+    FILTER(LCASE(STR(?concrete)) = LCASE("{0}"))
 }}
 +
 true
