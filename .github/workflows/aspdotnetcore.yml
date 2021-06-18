@@ -18,11 +18,11 @@ jobs:
       with:
         dotnet-version: 3.1.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./OntoMath-QAS/
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Release --no-restore ./OntoMath-QAS
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-restore --verbosity normal ./OntoMath-QAS
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1.8.0
       with:
