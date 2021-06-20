@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Linq;
 
+using Microsoft.Extensions.Options;
+
 using VDS.RDF;
 using VDS.RDF.Query;
 
 using OntoMath_QAS.Ontology;
+using OntoMath_QAS.Models.Settings;
 
 namespace OntoMath_QAS.Services
 {
     public class QuestionsService
     {
-        public Lazy<RequestGenerator> Generator { private get; set; }
+        public Lazy<IOptions<SparqlSettings>> Settings { get; set; } = null!;
 
-        public Lazy<QuestionMap> Map { private get; set; }
+        public Lazy<RequestGenerator> Generator { private get; set; } = null!;
+
+        public Lazy<QuestionMap> Map { private get; set; } = null!;
 
         /// <summary>
         /// Заполняет шаблон ответа результатами SPARQL запроса.
@@ -57,7 +62,7 @@ namespace OntoMath_QAS.Services
                 return "Не удалось понять Ваш вопрос, попробуйте переформулировать, пожалуйста.";
             }
 
-            var result = this.Generator.Value.GetSet(query);
+            var result = this.Generator.Value.GetSet($"{query} LIMIT {this.Settings.Value.Value.Limit}");
 
             return this.FillAnswer(answerTemplate, result);
         }
