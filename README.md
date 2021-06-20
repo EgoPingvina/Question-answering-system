@@ -40,3 +40,39 @@
 ## Демонстрация работы
 
 ![Демонстрация работы](https://github.com/EgoPingvina/Question-answering-system/blob/master/Documents/Images/%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D0%BE%D0%B2.gif?raw=true)
+
+## Список использованных источников
+
+1.	Hilbert, M. How to Measure «How Much Information»? Theoretical, Methodological, and Statistical Challenges for the Social Sciences / M. Hilbert // International Journal of Communication. – 2012. – № 6. – P. 1042-1055.
+2.	 Lyman, P. How much information / P. Lyman, H. R. Varian // University of California. – 2003.
+3.	Мочалова, А. В. Семантический анализатор русскоязычного текста для вопросно-ответной системы: диссертация … канд. техн. наук: 05.13.18 / Мочалова Анастасия Викторовна. – Петрозаводск, 2017. – 128 c.
+4.	Первичный семантический анализ: сайт – 2018. – URL: http://www.aot.ru/docs/seman.html (дата обращения: 21.02.2021).
+5.	Damljanovic, D. Natural language interfaces to ontologies: Combining syntactic analysis and ontology-based lookup through the user interaction / D. Damljanovic, M. Agatonovic, H. Cunningham // Extended Semantic Web Conference. – Springer, Berlin, Heidelberg, 2010. – P. 106-120.
+6.	Стемматизация и генерация словоформ в казахском языке для систем автоматической обработки текстов / В. Б. Барахнин и др. // Вычислительные технологии. – 2017. – Т. 22. – № 4.
+7.	Combining semantic information in question answering systems / P. Moreda et al // Information Processing & Management. – 2011. – V. 47. – № 6. – P. 870-885.
+8.	Образовательная математическая онтология OntoMathEdu: структура и отношения / Л. Р. Шакирова и др. // Научный сервис в сети Интернет: труды XXI Всероссийской научной конференции (23–28 сентября 2019 г., г. Новороссийск). М.: ИПМ им. МВ Келдыша. – 2019. – С. 653-661.
+9.	Guo, Q. Question answering based on pervasive agent ontology and Semantic Web / Q. Guo, M. Zhang // Knowledge-Based Systems. – 2009. – V. 22. – № 6. – P. 443-448.
+10.	Jung, H. Automated conversion from natural language query to SPARQL query / H. Jung, W. Kim // Journal of Intelligent Information Systems. – 2020. – P. 1-20.
+11.	Sarrouti, M. SemBioNLQA: A semantic biomedical question answering system for retrieving exact and ideal answers to natural language questions / M. Sarrouti, S. O. El Alaoui // Artificial Intelligence in Medicine. – 2020. – V. 102. – P. 101767.
+12.	Яхъева, Г. Э. Вопросно-ответная система для управления информационными рисками на основе теоретико-модельной формализации предметных областей / Г. Э. Яхъяева и др. // Информационные технологии. – 2017. – Т. 23. – № 2. – С. 97-106.
+13.	Мальковский, М. Г. Прикладное программное обеспечение: системы автоматической обработки текстов / М. Г. Мальковский, Т. Ю. Грацианова, И. Н. Полякова. // Издательский отдел факультета вычислительной математики и кибернетики МГУ им. М.В. Ломоносова. – Москва, 2000. – 7 с.
+14.	Онтологии и тезаурусы: модели, инструменты, приложения: учебное пособие / Б.В. Добров, В.В. Иванов, Н.В. Лукашевич, В.Д. Соловьев. – М.: Интернет-Университет Информационных Технологий; БИНОМ. Лаборатория знаний, 2009. – 173 с.: ил. – (Серия «Основы информационных технологий»).
+15.	Андреичев, М. Д. Разработка программного комплекса генерации вопросов по заданным субъектам при помощи семантической сети / М. Д. Андреичев, А. М. Бирюков // Молодёжная школа-конференция «Будущее математического образования». – 2021. – С. 8-11.
+16.	Vargas-Vera, M. AQUA–ontology-based question answering system / M. Vargas-Vera, E. Motta // Mexican International Conference on Artificial Intelligence. – Springer, Berlin, Heidelberg, 2004. – P. 468-477.
+17.	Филонов, Д. Р. Вопросно-ответная система для поддержки абитуриентов с использованием современных мессенджеров / Д. Р. Филонов и др. // Моделирование и анализ информационных систем. – 2018. – Т. 25. – № 4. – С. 411-420.
+18.	Наукометрия. Изучение развития науки как информационного процесса / В. В. Налимов, З. М. Мульченко. – Букинист, 1969. – 192 с.
+19.	Вебинар Clarivate. Вступление в наукометрию: сайт. – 2020. – URL: https://clarivate.ru/webinars (дата обращения: 01.12.2020). – Режим доступа: для зарегистрированных пользователей.
+20.	Вебинар Clarivate. Поиск в пристатейной литературе: доступные сокровища Web of Science: сайт. – 2020. – URL: https://clarivate.ru/webinars (дата обращения: 03.12.2020). – Режим доступа: для зарегистрированных пользователей.
+21.	OntoMathPro: центр математического связывания открытых данных: сайт. – 2016. – URL: https://github.com/CLLKazan/OntoMathPro (дата обращения: 16.12.2020).
+22.	Он-лайн форум Big Data 2021: сайт. – 2021. – URL: https://www.osp.ru/lp/bigdata2021 (дата обращения: 25.03.2021). – Режим доступа: для зарегистрированных пользователей.
+23.	Digital Decisions. Вопросно-ответные системы: о методах поиска ответа на запрос: сайт – 2021. – URL: https://ddecisions.ai/qasystems (дата обращения: 02.06.2021).
+24.	Среда описания ресурса (RDF): Понятия и Абстрактный Синтаксис: сайт – 2014. – URL: https://www.w3.org/2007/03/rdf_concepts_ru (дата обращения: 12.11.2020).
+25.	RDF Primer: сайт – 2014. – URL: https://www.w3.org/TR/rdf-primer (дата обращения: 14.11.2020).
+26.	Modeling and evaluation of the mathematical educational ontology / L. Shakirova et al. // CEUR Workshop Proceedings. – 2020. – V. 2543. – P. 305-319.
+27.	Nevzorova, O. OntoMathEdu Educational Mathematical Ontology: Annotation of Concepts. / O. Nevzorova et al. // SCOPUS16130073-2020-2648-SID85092283061. – 2020.
+28.	Nevzorova, O. A. OntoMath PRO ontology: a linked data hub for mathematics / O. A. Nevzorova et al. // International Conference on Knowledge Engineering and the Semantic Web. – Springer, Cham, 2014. – P. 105-119.
+29.	Berners-Lee, T. Linked Data. Design Issues / T. Berners-Lee // Linked Data: website. – 2006. – URL: https://www.w3.org/DesignIssues/LinkedData.html (дата обращения: 16.01.2021).
+30.	MSDN: Конфигурация в .NET Core: сайт. – 2021. – URL: https://docs.microsoft.com/ru-ru/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0 (дата обращения: 02.06.2021).
+31.	Beck, K. Test-driven development: by example. / K Beck. – Addison-Wesley Professional, 2003.
+32.	Исторический-сайт.рф: сайт. – 2020. – URL: https://исторический-сайт.рф (дата обращения: 14.06.2021). 
+33.	Электронный фонд правовых и нормативно-технических документов: сайт. – 2012. – URL: https://docs.cntd.ru/document/9041994 (дата обращения: 14.06.2021).
