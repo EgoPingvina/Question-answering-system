@@ -33,6 +33,8 @@
 4. Соответствующий шаблон SPARQL запроса.
 5. Признак окончания очередного элемента карты преобразований.
 
+Содержимое карты преобразований реализованного прототипа предлагаемой модели вопросно-ответной системы можно посмотреть по [ссылке](https://github.com/EgoPingvina/Question-answering-system/blob/master/OntoMath-QAS/Data/ReadableMap.txt).
+
 ## Алгоритм обработки вопроса
 
 ![Блок-схема обработки вопроса пользователя](https://github.com/EgoPingvina/Question-answering-system/blob/master/Documents/Images/question%20processing%20algorithm.png?raw=true)
